@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rozaa — цветочный магазин в Ульяновске. Букеты, доставка, цветы на заказ</title>
+<meta name="description" content="Rozaa, цветочный магазин в Ульяновске. Розы и авторские букеты, доставка по городу, сборка под заказ.">
+<meta property="og:title" content="Rozaa — цветочный магазин в Ульяновске">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23fff'/%3E%3Ctext x='32' y='48' font-size='44' font-family='serif' font-weight='700' text-anchor='middle' fill='%23C8102E'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Florist","name":"Rozaa","address":{"@type":"PostalAddress","addressLocality":"Ульяновск"}}</script>
+<style>
+:root{--white:#fff;--paper:#FBF8F6;--red:#C8102E;--red-deep:#8F0A21;--ink:#1B1B1B;--line:#E7DEDA;--ease:cubic-bezier(.22,1,.36,1);--pad:clamp(20px,5vw,72px);--serif:'Cormorant Garamond',Georgia,serif;--sans:'Manrope',Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font:400 17px/1.55 var(--sans);color:var(--ink);background:var(--white);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:.95;letter-spacing:-.01em}
+h2{font-size:clamp(40px,6vw,88px);margin-bottom:clamp(28px,4vw,56px)}
+section{padding:clamp(64px,10vw,140px) var(--pad)}
+.cap{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 32px;background:var(--red);color:#fff;border:1px solid var(--red);cursor:pointer;overflow:hidden;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;isolation:isolate;transition:color .5s}
+.btn:before{content:"";position:absolute;inset:0;background:var(--red-deep);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease);z-index:-1}
+.btn:hover:before{transform:scaleX(1)}
+.btn.ghost{background:transparent;color:var(--red)}
+.btn.ghost:before{background:var(--red)}
+.btn.ghost:hover{color:#fff}
+.btn.inv{background:#fff;color:var(--red);border-color:#fff}
+.btn.inv:before{background:var(--ink)}
+.btn.inv:hover{color:#fff}
+.ul{position:relative}
+.ul:after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.ul:hover:after{transform:scaleX(1)}
+/* шапка */
+header{position:fixed;top:0;left:0;right:0;height:72px;background:#fff;border-bottom:1px solid var(--line);z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);transition:transform .4s var(--ease)}
+header.hide{transform:translateY(-100%)}
+.logo{font:600 34px/1 var(--serif)}
+.logo i{font-style:normal;color:var(--red)}
+nav{display:flex;gap:clamp(16px,2.4vw,40px);font-size:14px}
+.hr{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:600}
+.hr .btn{height:44px;padding:0 22px}
+.bg{display:none;width:44px;height:44px;background:none;border:0;cursor:pointer;position:relative}
+.bg span{position:absolute;left:10px;right:10px;height:1px;background:var(--ink);transition:transform .4s var(--ease)}
+.bg span:first-child{top:19px}.bg span:last-child{top:25px}
+.bg.on span:first-child{transform:translateY(3px) rotate(45deg)}.bg.on span:last-child{transform:translateY(-3px) rotate(-45deg)}
+.mm{position:fixed;inset:0;background:#fff;z-index:40;display:flex;flex-direction:column;justify-content:center;padding:0 var(--pad);gap:8px;visibility:hidden;opacity:0;transition:opacity .4s,visibility .4s}
+.mm.on{visibility:visible;opacity:1}
+.mm a{font:600 clamp(40px,12vw,64px)/1.1 var(--serif);transform:translateY(24px);opacity:0;transition:transform .6s var(--ease),opacity .6s}
+.mm.on a{transform:none;opacity:1}
+.mm.on a:nth-child(2){transition-delay:.06s}.mm.on a:nth-child(3){transition-delay:.12s}.mm.on a:nth-child(4){transition-delay:.18s}.mm.on a:nth-child(5){transition-delay:.24s}
+/* первый экран */
+.hero{min-height:100svh;padding:72px var(--pad) 64px;display:flex;align-items:center;position:relative;overflow:hidden;background:var(--paper)}
+.ht{position:relative;z-index:1;width:min(640px,100%);padding:clamp(24px,3.2vw,48px)}
+.ht:before{content:"";position:absolute;inset:0;background:rgba(255,255,255,.9);opacity:0;transition:opacity .8s var(--ease);z-index:-1}
+.hero.txt .ht:before{opacity:1}
+.bgv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right center;z-index:0}
+.ht .cap{color:var(--red);margin-bottom:28px}
+.hero h1{font-size:clamp(42px,5.4vw,88px);margin-bottom:24px}
+.ln{display:block;overflow:hidden;padding-bottom:.08em}
+.ln span{display:block;transform:translateY(110%)}
+.hero p.lead{max-width:34ch;margin-bottom:36px}
+.hb{display:flex;gap:14px;flex-wrap:wrap}
+.fd{opacity:0;transform:translateY(16px)}
+.facts{z-index:2;background:rgba(255,255,255,.9);position:absolute;left:var(--pad);right:var(--pad);bottom:0;height:64px;border-top:1px solid var(--line);display:flex;align-items:center;gap:clamp(16px,4vw,64px);font-size:14px}
+/* лента */
+.tick{background:var(--red);color:#fff;overflow:hidden;white-space:nowrap;padding:16px 0}
+.tick div{display:inline-block;animation:tk 40s linear infinite}
+.tick:hover div{animation-play-state:paused}
+.tick span{margin-right:48px}
+@keyframes tk{to{transform:translateX(-50%)}}
+/* каталог */
+.ch{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:0}
+.tabs{display:flex;gap:28px;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:40px}
+.tabs button{background:none;border:0;padding:12px 0;cursor:pointer;position:relative;font-size:15px}
+.tabs button:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.tabs button.on:after{transform:scaleX(1)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 24px}
+.card{transition:opacity .3s,transform .5s var(--ease)}
+.card.out{opacity:0;transform:translateY(14px)}
+.card .im{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--paper)}
+.card .im svg,.card .im img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease)}
+.card:hover .im svg,.card:hover .im img{transform:scale(1.04)}
+.card .im button{position:absolute;left:0;right:0;bottom:0;height:52px;border:0;background:var(--red);color:#fff;cursor:pointer;font-size:13px;letter-spacing:.12em;text-transform:uppercase;transform:translateY(100%);transition:transform .5s var(--ease)}
+.card:hover .im button,.card .im button:focus-visible{transform:none}
+.card h3{font-size:28px;margin:16px 0 4px;line-height:1}
+.card small{display:block;color:#6b6460;font-size:14px;min-height:42px}
+.card b{color:var(--red);font-weight:600}
+/* на заказ */
+.custom{background:var(--red);color:#fff;display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px)}
+.custom h2{margin-bottom:24px}
+.steps{list-style:none;counter-reset:s;border-top:1px solid rgba(255,255,255,.5)}
+.steps li{counter-increment:s;display:grid;grid-template-columns:56px 1fr;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.5)}
+.steps li:before{content:counter(s);font:600 32px/1 var(--serif)}
+.calc{margin-top:36px}
+.calc label{display:block;margin:18px 0 8px;font-size:14px}
+.calc input{width:100%;-webkit-appearance:none;appearance:none;height:2px;background:#fff;border:0}
+.calc input::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;background:var(--ink);border:2px solid #fff;border-radius:50%}
+.calc input::-moz-range-thumb{width:16px;height:16px;background:var(--ink);border:2px solid #fff;border-radius:50%}
+.calc p{margin:22px 0;font:600 26px/1.1 var(--serif)}
+/* доставка */
+.dl{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.dl>div{padding:32px 0}
+.dl>div+div{border-left:1px solid var(--line);padding-left:clamp(24px,5vw,72px)}
+.dl h3{font-size:34px;margin-bottom:14px}
+.dl p{margin-bottom:8px;max-width:44ch}
+/* вопросы */
+.faq{border-top:1px solid var(--line);max-width:900px}
+.q button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;background:none;border:0;border-bottom:1px solid var(--line);cursor:pointer;text-align:left;font:600 clamp(22px,2.4vw,30px)/1.1 var(--serif)}
+.q i{position:relative;width:18px;height:18px;flex:none}
+.q i:before,.q i:after{content:"";position:absolute;left:0;right:0;top:8px;height:2px;background:var(--red);transition:transform .4s var(--ease)}
+.q i:after{transform:rotate(90deg)}
+.q.on i:after{transform:rotate(0)}
+.q .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease)}
+.q.on .a{grid-template-rows:1fr}
+.q .a div{overflow:hidden}
+.q .a p{padding:20px 0 24px;max-width:60ch}
+/* контакты */
+.ct{background:var(--paper);display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,96px)}
+.ct dl{display:grid;gap:22px}
+.ct dt{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);font-weight:600}
+.ct dd{font-size:20px}
+form{display:grid;gap:18px}
+.f label{display:block;font-size:13px;margin-bottom:6px}
+.f input,.f select,.f textarea{width:100%;height:52px;padding:0 14px;background:#fff;border:1px solid var(--line);border-radius:2px;transition:border-color .3s}
+.f textarea{height:96px;padding:12px 14px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--red);outline:0}
+.f em{display:block;min-height:18px;margin-top:4px;font-size:13px;color:var(--red);font-style:normal}
+.ok{display:none}
+.ok h3{font-size:clamp(34px,4vw,56px);margin-bottom:20px}
+.ok hr{border:0;height:2px;background:var(--red);width:0;transition:width 1s var(--ease)}
+.sent .ok{display:block}.sent form{display:none}
+.sent .ok hr{width:100%}
+footer{padding:48px var(--pad) 32px;border-top:1px solid var(--line)}
+footer .big{font:600 clamp(80px,22vw,360px)/.85 var(--serif);color:var(--red);letter-spacing:-.03em}
+footer div.l{display:flex;gap:28px;flex-wrap:wrap;margin-top:32px;font-size:14px}
+/* модальное окно */
+dialog{margin:auto;width:min(520px,92vw);border:0;padding:36px;background:#fff;max-height:92svh;overflow:auto}
+dialog::backdrop{background:rgba(27,27,27,.55)}
+dialog[open]{animation:up .5s var(--ease)}
+@keyframes up{from{opacity:0;transform:translateY(24px)}}
+dialog h3{font-size:36px;margin-bottom:6px}
+dialog .x{position:absolute;top:14px;right:18px;background:none;border:0;cursor:pointer;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.cb{display:none}
+/* появление */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}.custom,.ct{grid-template-columns:1fr}}
+@media(max-width:860px){nav,.hr a.tel,.hr .btn{display:none}.bg{display:block}
+.hero{align-items:flex-end;padding:96px 16px 72px}.ht{width:100%}.facts{display:none}.dl{grid-template-columns:1fr}.dl>div+div{border-left:0;padding-left:0;border-top:1px solid var(--line)}
+.cb{display:flex;position:fixed;left:0;right:0;bottom:0;height:56px;z-index:30;background:var(--red);color:#fff;align-items:center;justify-content:center;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}.rv{opacity:1;transform:none}.ln span,.fd{transform:none;opacity:1}html{scroll-behavior:auto}}
+
+/* правки: hero, каталог, формы */
+html{font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
+[hidden]{display:none!important}
+.ct>*,.custom>*,.dl>*{min-width:0}
+.hero{display:grid;grid-template-rows:1fr auto;align-items:stretch;padding:72px var(--pad) 24px;min-height:100svh}
+.ht{align-self:center;padding:clamp(24px,3.2vw,48px)}
+.ht:before{background:#FBF8F5}
+.ln.sub span{font:500 clamp(18px,1.9vw,28px)/1.3 var(--sans);letter-spacing:0;color:var(--red);padding-top:12px}
+.facts{position:static;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);height:auto;margin-top:24px;padding:16px 24px;background:#FBF8F5;border:1px solid var(--line)}
+.facts span+span{border-left:1px solid var(--line);padding-left:24px}
+.card .btn{width:100%;height:48px;margin-top:14px}
+.calc input[type=range]{height:32px;background:none;touch-action:pan-y}
+.calc input::-webkit-slider-runnable-track{height:2px;background:#fff}
+.calc input::-moz-range-track{height:2px;background:#fff}
+.calc input::-webkit-slider-thumb{width:26px;height:26px;margin-top:-12px}
+.calc input::-moz-range-thumb{width:22px;height:22px}
+.f label,.f .lb{display:block;font-size:14px;margin-bottom:6px}
+.f input,.f select,.f textarea{border:1.5px solid #8C817C;font-size:16px}
+.seg{display:flex}
+.seg label{flex:1;margin:0}
+.seg input{position:absolute;opacity:0;width:1px;height:1px}
+.seg span{display:flex;align-items:center;justify-content:center;height:48px;border:1.5px solid #8C817C;background:#fff;cursor:pointer;font-size:15px;transition:background .3s,color .3s,border-color .3s}
+.seg label+label span{border-left:0}
+.seg input:checked+span{background:var(--red);border-color:var(--red);color:#fff}
+.seg input:focus-visible+span{outline:2px solid var(--red);outline-offset:2px}
+.ck{display:flex;gap:10px;align-items:flex-start;font-size:14px;cursor:pointer}
+.ck input{width:20px;height:20px;margin-top:2px;accent-color:var(--red);flex:none}
+.note{font-size:14px;color:#6b6460}
+.cbtns{display:flex;gap:12px;flex-wrap:wrap}
+.cbtns .btn{flex:1;min-width:140px}
+.ct dd a{color:var(--red)}
+.cb>*{flex:1;height:56px;border:0;background:var(--red);color:#fff;font:600 13px var(--sans);letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.cb a{border-left:1px solid #fff}
+@media(max-width:1000px){.facts{grid-template-columns:1fr}.facts span+span{border-left:0;padding-left:0}}
+@media(max-width:860px){.hero{display:flex;align-items:flex-end;padding:96px 16px 72px}.bgv{object-position:50% center}.ht{width:100%;padding:20px;align-self:flex-end}.ht .cap,.hero p.lead{display:none}.hero h1{font-size:clamp(34px,10vw,48px);margin-bottom:16px}.facts{display:none}.dl{grid-template-columns:1fr}body{padding-bottom:56px}}
+</style>
+</head>
+<body>
+<header id="hd">
+  <a class="logo" href="#top" aria-label="Rozaa">Roz<i>aa</i></a>
+  <nav aria-label="Основная"><a class="ul" href="#catalog">Каталог</a><a class="ul" href="#custom">Букеты на заказ</a><a class="ul" href="#delivery">Доставка</a><a class="ul" href="#faq">Вопросы</a><a class="ul" href="#contacts">Контакты</a></nav>
+  <div class="hr"><a class="tel" id="hTel" hidden></a><button class="btn" data-order="">Заказать</button><button class="bg" id="bg" aria-label="Меню" aria-expanded="false"><span></span><span></span></button></div>
+</header>
+<div class="mm" id="mm"><a href="#catalog">Каталог</a><a href="#custom">На заказ</a><a href="#delivery">Доставка</a><a href="#faq">Вопросы</a><a href="#contacts">Контакты</a></div>
+
+<main id="top">
+<section class="hero" id="hero">
+  <video class="bgv" id="hv" muted playsinline preload="auto" poster="rozaa-hero-poster.jpg" aria-label="Роза влетает справа, рассыпается лепестками и превращается в букет"><source src="rozaa-hero.mp4" type="video/mp4"></video>
+  <div class="ht">
+    <p class="cap fd">Цветочный магазин, Ульяновск</p>
+    <h1><span class="ln"><span>Розы и букеты</span></span><span class="ln"><span>в Ульяновске</span></span><span class="ln sub"><span>Доставка от 60 минут</span></span></h1>
+    <p class="lead fd">Букеты от 2 500 ₽. Свежие розы, собираем в день заказа.</p>
+    <div class="hb fd"><a class="btn" href="#catalog">Выбрать букет</a><a class="btn ghost" href="#custom">Собрать на заказ</a></div>
+  </div>
+  <div class="facts fd"><span>Доставка по Ульяновску</span><span>Букеты от 2 500 ₽</span><span>Сборка под заказ</span></div>
+</section>
+
+<div class="tick" aria-hidden="true"><div id="tk"></div></div>
+
+<section id="catalog">
+  <div class="ch"><h2 class="rv">Букеты</h2><p class="cap rv" id="cnt"></p></div>
+  <div class="tabs rv" id="tabs"></div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="custom" id="custom">
+  <div class="rv"><h2>Букет под ваш повод</h2>
+    <ol class="steps"><li>Выбираете повод и бюджет.</li><li>Мы подбираем цветы и присылаем эскиз.</li><li>Собираем и упаковываем.</li><li>Привозим или ждёте в магазине.</li></ol></div>
+  <div class="calc rv">
+    <label for="bud">Бюджет: <b id="bv">5 000</b> ₽</label><input id="bud" type="range" min="1500" max="15000" step="500" value="5000">
+    <label for="qty">Количество цветов: <b id="qv">15</b></label><input id="qty" type="range" min="5" max="51" step="2" value="15">
+    <label for="clr">Цвет</label><select id="clr" class="f" style="width:100%;height:52px;padding:0 14px;background:#fff;color:var(--ink);border:0;border-radius:2px"><option>красные</option><option>белые</option><option>микс</option></select>
+    <p id="hint"></p><button class="btn inv" id="calcBtn">Заказать такой букет</button>
+  </div>
+</section>
+
+<section id="delivery">
+  <h2 class="rv">Доставка и самовывоз</h2>
+  <div class="dl rv" id="dl">
+    <div><h3>По Ульяновску</h3><p>Доставка от 60 минут после подтверждения заказа.</p><p>Стоимость сообщим при подтверждении.</p></div>
+    <div id="pick" hidden><h3>Самовывоз</h3><p>Подготовим букет к вашему приходу и упакуем.</p></div>
+  </div>
+</section>
+
+<section id="faq" style="background:var(--paper)">
+  <h2 class="rv">Вопросы</h2>
+  <div class="faq rv" id="faqList"></div>
+</section>
+
+<section class="ct" id="contacts">
+  <div class="rv" id="cl"><h2>Заявка</h2></div>
+  <div class="rv" id="cf"></div>
+</section>
+</main>
+
+<footer><div class="big">Rozaa</div><div class="l"><a class="ul" href="#catalog">Каталог</a><a class="ul" href="#delivery">Доставка</a><a class="ul" href="#contacts">Заявка</a><a class="ul" id="fPol" hidden>Политика конфиденциальности</a></div><p style="margin-top:24px;font-size:14px">© Rozaa, 2026, Ульяновск</p></footer>
+<div class="cb" id="cb"><button data-order="">Заказать</button><a id="cbTel" hidden>Позвонить</a></div>
+<dialog id="dlg"><button class="x" id="dx">Закрыть</button><h3>Заказать</h3><p id="dname" style="margin-bottom:20px;color:var(--red);font-weight:600"></p><div id="mf"></div></dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+const CONFIG={tgToken:'',tgChat:'',textAt:6.5,phone:'',tgUser:'',address:'',hours:'',policyUrl:''};
+const PRODUCTS=[
+{n:'Красный акцент',c:'15 красных роз, лента',p:3900,k:'Розы',col:'r',q:7},
+{n:'Белое утро',c:'Белые розы и эвкалипт',p:4600,k:'Другое',col:'w',q:7},
+{n:'Rozaa классика',c:'25 красных роз 60 см',p:6900,k:'Розы',col:'r',q:9},
+{n:'Мягкий жест',c:'9 красных роз и гипсофила',p:2800,k:'Розы',col:'r',q:5},
+{n:'Мономикс',c:'51 красная роза',p:14500,k:'Другое',col:'r',q:9},
+{n:'Сад',c:'Сезонные цветы в крафте',p:3200,k:'Другое',col:'m',q:7},
+{n:'Утро невесты',c:'Белые и красные розы, зелень',p:5400,k:'Другое',col:'m',q:9},
+{n:'Короткая записка',c:'5 красных роз',p:1900,k:'Розы',col:'r',q:3}];
+const FAQ=[['Как долго стоят розы?','При правильном уходе от семи до десяти дней. Обрежьте стебли под углом и меняйте воду каждые два дня.'],['Можно заказать на точное время?','Да. Укажите время в заявке, мы подтвердим его по телефону.'],['Как оплатить?','Способ оплаты согласуем при подтверждении заказа.'],['Можно добавить открытку?','Да, напишем текст от руки и положим в букет бесплатно.'],['Что с заказом после 20:00?','Заявки принимаем в любое время. Время доставки согласуем после подтверждения.']];
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const rub=n=>n.toLocaleString('ru-RU')+' ₽';
+
+/* ---------- первый экран: видео ---------- */
+const hv=$('#hv'),reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(reduce){const im=new Image();im.src='rozaa-hero-poster.jpg';im.alt='';im.className='bgv';hv.replaceWith(im)}
+let shown=false;
+function showText(){
+ if(shown)return;shown=true;$('#hero').classList.add('txt');
+ if(!window.gsap){$$('.ln span').forEach(e=>e.style.transform='none');$$('.fd').forEach(e=>{e.style.opacity=1;e.style.transform='none'});return}
+ gsap.timeline().to('.ln span',{y:0,duration:.9,stagger:.12,ease:'power3.out'})
+ .to('.fd',{opacity:1,y:0,duration:.7,stagger:.1,ease:'power3.out'},.4);
+}
+function play(){
+ shown=false;$('#hero').classList.remove('txt');
+ if(window.gsap){gsap.set('.ln span',{y:'110%'});gsap.set('.fd',{opacity:0,y:16})}
+ if(reduce){showText();return}
+ hv.currentTime=0;
+ const p=hv.play();
+ if(p&&p.catch)p.catch(()=>showText());
+}
+if(!reduce){hv.addEventListener('timeupdate',()=>{if(hv.currentTime>=CONFIG.textAt)showText()});
+hv.addEventListener('ended',showText);
+hv.addEventListener('error',showText)}
+addEventListener('scroll',showText,{once:true,passive:true});
+
+/* ---------- лента ---------- */
+$('#tk').innerHTML=Array(8).fill('<span class="cap">Свежие розы · Букеты на заказ · Доставка по Ульяновску · Упаковка в подарок</span>').join('');
+
+/* ---------- каталог ---------- */
+function art(col,n){const f=i=>col==='r'?'#C8102E':col==='w'?'#fff':i%2?'#fff':'#C8102E',dk=i=>col==='r'||(col==='m'&&i%2===0)?'#8F0A21':'#E7DEDA';
+ let s='<svg viewBox="0 0 200 250" aria-hidden="true"><rect width="200" height="250" fill="#F4EDE8"/>',pts=[];
+ for(let i=0;i<n;i++){const o=i-(n-1)/2,x=100+o*(n>6?18:24),y=82+Math.abs(o)*(n>6?10:16)-(i%2)*8;pts.push([x,y]);s+=`<path d="M100 220L${x} ${y+8}" stroke="#2F5D3A" stroke-width="3" fill="none"/>`}
+ s+='<polygon points="55,150 145,150 122,236 78,236" fill="#fff" stroke="#E7DEDA" stroke-width="1.5"/>';
+ pts.forEach(([x,y],i)=>{s+=`<circle cx="${x}" cy="${y}" r="${n>6?17:21}" fill="${f(i)}" stroke="${dk(i)}" stroke-width="1.5"/><circle cx="${x}" cy="${y}" r="${n>6?6:8}" fill="${dk(i)}"/>`});
+ return s+'<rect x="82" y="168" width="36" height="7" fill="#C8102E"/></svg>'}
+const cats=['Все','Розы','Другое'];let cur='Все';
+$('#tabs').innerHTML=cats.map(c=>`<button class="${c==='Все'?'on':''}">${c}</button>`).join('');
+$('#grid').innerHTML=PRODUCTS.map((p,i)=>`<article class="card" data-k="${p.k}"><div class="im">${art(p.col,p.q)}<img src="photos/${i+1}.jpg" alt="${p.n}" loading="lazy" onerror="this.remove()"></div><h3>${p.n}</h3><small>${p.c}</small><b>${rub(p.p)}</b><button class="btn ghost" data-order="${p.n}, ${rub(p.p)}">Заказать</button></article>`).join('');
+function filt(){const cs=$$('.card');let n=0;cs.forEach(c=>c.classList.add('out'));setTimeout(()=>{cs.forEach(c=>{const v=cur==='Все'||c.dataset.k===cur;c.style.display=v?'':'none';v&&n++});$('#cnt').textContent=n+' позиций';requestAnimationFrame(()=>cs.forEach(c=>c.classList.remove('out')))},300)}
+$$('#tabs button').forEach(b=>b.onclick=()=>{$$('#tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');cur=b.textContent;filt()});
+$('#cnt').textContent=PRODUCTS.length+' позиций';
+
+/* ---------- подбор ---------- */
+function calc(){const b=+$('#bud').value,q=+$('#qty').value,c=$('#clr').value;$('#bv').textContent=b.toLocaleString('ru-RU');$('#qv').textContent=q;$('#hint').textContent=`Примерно ${q} роз, ${c}, упаковка включена. Цена за цветок около ${Math.round(b/q)} ₽.`}
+['#bud','#qty','#clr'].forEach(s=>$(s).oninput=calc);calc();
+$('#calcBtn').onclick=()=>openD(`Бюджет ${rub(+$('#bud').value)}, ${$('#qty').value} цветов, цвет: ${$('#clr').value}`);
+
+/* ---------- вопросы ---------- */
+$('#faqList').innerHTML=FAQ.map(([q,a])=>`<div class="q"><button aria-expanded="false">${q}<i></i></button><div class="a"><div><p>${a}</p></div></div></div>`).join('');
+$$('.q button').forEach(b=>b.onclick=()=>{const q=b.parentNode,o=q.classList.toggle('on');b.setAttribute('aria-expanded',o)});
+
+/* ---------- формы ---------- */
+const tel=CONFIG.phone.replace(/[^\d+]/g,'');
+const agree=id=>`<div><label class="ck" for="g${id}"><input type="checkbox" id="g${id}" name="agree"><span>Согласен на обработку персональных данных${CONFIG.policyUrl?` (<a class="ul" href="${CONFIG.policyUrl}" target="_blank" rel="noopener">политика</a>)`:''}</span></label><em data-for="agree"></em></div><p class="note">Ответим в течение 10 минут</p>`;
+const cbtn=()=>{const b=(CONFIG.phone?`<a class="btn ghost" href="tel:${tel}">Позвонить</a>`:'')+(CONFIG.tgUser?`<a class="btn ghost" href="https://t.me/${CONFIG.tgUser}" target="_blank" rel="noopener">Telegram</a>`:'');return b?`<div class="cbtns">${b}</div>`:''};
+const base=id=>`<div class="f"><label for="n${id}">Имя</label><input id="n${id}" name="name" autocomplete="name"><em data-for="name"></em></div><div class="f"><label for="t${id}">Телефон</label><input id="t${id}" name="phone" type="tel" inputmode="tel" placeholder="+7" autocomplete="tel"><em data-for="phone"></em></div>`;
+const OK='<div class="ok"><h3>Заявка принята. Ответим в течение 10 минут</h3><hr></div>';
+const FORM_S=id=>`<form novalidate data-f>${base(id)}${agree(id)}<button class="btn" type="submit">Заказать</button></form>${cbtn()}${OK}`;
+const FORM=id=>`<form novalidate data-f>${base(id)}
+<div class="f"><span class="lb">Когда</span><div class="seg"><label><input type="radio" name="when" value="сегодня" checked><span>Сегодня</span></label><label><input type="radio" name="when" value="завтра"><span>Завтра</span></label><label><input type="radio" name="when" value="другая дата"><span>Другая дата</span></label></div></div>
+<div class="f" data-date hidden><label for="dt${id}">Дата</label><input id="dt${id}" name="date" type="date"><em data-for="date"></em></div>
+<div class="f"><label for="iv${id}">Время</label><select id="iv${id}" name="interval"><option>Как можно скорее</option><option>Утром</option><option>Днём</option><option>Вечером</option></select></div>
+<div class="f"><span class="lb">Получение</span><div class="seg"><label><input type="radio" name="mode" value="Доставка" checked><span>Доставка</span></label><label><input type="radio" name="mode" value="Самовывоз"><span>Самовывоз</span></label></div></div>
+<div class="f" data-addr><label for="ad${id}">Адрес доставки</label><input id="ad${id}" name="address" autocomplete="street-address"><em data-for="address"></em></div>
+<div class="f"><label for="c${id}">Комментарий (необязательно)</label><textarea id="c${id}" name="comment"></textarea></div>
+${agree(id)}<button class="btn" type="submit">Отправить заявку</button></form>${cbtn()}${OK}`;
+$('#cf').innerHTML=FORM('a');$('#mf').innerHTML=FORM_S('b');
+let item='';
+$$('[data-f]').forEach(f=>{const ph=f.elements.phone,er=(k,m)=>{const e=f.querySelector(`em[data-for=${k}]`);if(e)e.textContent=m};
+ ph.addEventListener('input',()=>{let d=ph.value.replace(/\D/g,'');if(d[0]==='8')d='7'+d.slice(1);if(d&&d[0]!=='7')d='7'+d;d=d.slice(0,11);let v=d?'+7':'';if(d.length>1)v+=' ('+d.slice(1,4);if(d.length>4)v+=') '+d.slice(4,7);if(d.length>7)v+='-'+d.slice(7,9);if(d.length>9)v+='-'+d.slice(9,11);ph.value=v});
+ f.addEventListener('change',()=>{const dt=f.querySelector('[data-date]'),ad=f.querySelector('[data-addr]');if(dt)dt.hidden=f.elements.when.value!=='другая дата';if(ad)ad.hidden=f.elements.mode.value!=='Доставка'});
+ f.addEventListener('submit',async e=>{e.preventDefault();f.querySelectorAll('em').forEach(x=>x.textContent='');const F=f.elements;let bad=0;
+  if(F.name.value.trim().length<2){er('name','Укажите имя');bad=1}
+  if(ph.value.replace(/\D/g,'').length<11){er('phone','Введите телефон полностью');bad=1}
+  if(F.address&&F.mode.value==='Доставка'&&F.address.value.trim().length<5){er('address','Укажите адрес доставки');bad=1}
+  if(F.date&&F.when.value==='другая дата'&&!F.date.value){er('date','Выберите дату');bad=1}
+  if(!F.agree.checked){er('agree','Нужно согласие на обработку данных');bad=1}
+  if(bad)return;
+  const L=['Заявка с сайта Rozaa','Имя: '+F.name.value,'Телефон: '+ph.value];
+  if(item&&f.closest('dialog'))L.push('Букет: '+item);
+  if(F.when){L.push('Когда: '+(F.when.value==='другая дата'?F.date.value:F.when.value)+', '+F.interval.value.toLowerCase(),'Получение: '+F.mode.value+(F.mode.value==='Доставка'?', '+F.address.value:''));if(F.comment.value)L.push('Комментарий: '+F.comment.value)}
+  const msg=L.join('\n');
+  if(CONFIG.tgToken&&CONFIG.tgChat){try{await fetch(`https://api.telegram.org/bot${CONFIG.tgToken}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:CONFIG.tgChat,text:msg})})}catch(x){console.error(x)}}else console.log(msg);
+  const w=f.parentNode;w.classList.add('sent');setTimeout(()=>w.querySelector('hr').style.width='100%',30)})});
+const dlg=$('#dlg');
+function openD(n){item=n||'';$('#dname').textContent=item;dlg.showModal()}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-order]');if(b)openD(b.dataset.order);if(e.target===dlg)dlg.close()});
+$('#dx').onclick=()=>dlg.close();
+
+/* ---------- контакты из CONFIG: пустое не показываем ---------- */
+if(CONFIG.phone){[$('#hTel'),$('#cbTel')].forEach(a=>{a.href='tel:'+tel;a.hidden=false});$('#hTel').textContent=CONFIG.phone}
+if(CONFIG.policyUrl){$('#fPol').href=CONFIG.policyUrl;$('#fPol').hidden=false}
+{const it=[['Адрес',CONFIG.address],['Телефон',CONFIG.phone&&`<a href="tel:${tel}">${CONFIG.phone}</a>`],['Telegram',CONFIG.tgUser&&`<a href="https://t.me/${CONFIG.tgUser}" target="_blank" rel="noopener">@${CONFIG.tgUser}</a>`],['Работаем',CONFIG.hours]].filter(x=>x[1]);
+ $('#cl').insertAdjacentHTML('beforeend',it.length?`<dl>${it.map(([t,v])=>`<div><dt>${t}</dt><dd>${v}</dd></div>`).join('')}</dl>`:'<p>Оставьте имя и телефон. Мы перезвоним и уточним детали.</p>');
+ if(CONFIG.address||CONFIG.hours){const p=$('#pick');p.hidden=false;p.insertAdjacentHTML('beforeend',[CONFIG.address,CONFIG.hours].filter(Boolean).map(x=>`<p>${x}</p>`).join(''))}else $('#dl').style.gridTemplateColumns='1fr'}
+
+/* ---------- шапка, меню, появление ---------- */
+let ly=0;addEventListener('scroll',()=>{const y=scrollY;$('#hd').classList.toggle('hide',y>ly&&y>120);ly=y},{passive:true});
+const bg=$('#bg'),mm=$('#mm');const tg=o=>{mm.classList.toggle('on',o);bg.classList.toggle('on',o);bg.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';$('#cb').style.display=o?'none':''};
+bg.onclick=()=>tg(!mm.classList.contains('on'));mm.onclick=e=>{if(e.target.tagName==='A')tg(false)};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+$$('.card').forEach((c,i)=>{c.classList.add('rv');c.style.setProperty('--d',(i%4)*.09+'s')});$$('.steps li,.dl>div').forEach((c,i)=>{c.classList.add('rv');c.style.setProperty('--d',i*.09+'s')});
+$$('.rv').forEach(e=>io.observe(e));
+
+/* ---------- запуск ---------- */
+(document.fonts?document.fonts.ready:Promise.resolve()).then(play);
+</script>
+</body>
+</html>
